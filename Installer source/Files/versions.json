@@ -1,0 +1,18 @@
+{
+    "version"      : "1.5.0.4 #5",
+    "name"         : "ModPack by Automatyk",
+    "author"       : "Automatyk",
+    "link"         : "https://github.com/komandos84/Installator-by-Automatyk/releases",
+    "date"         : "26.05.2019",
+    "image"        : false,
+    "imageName"    : "emblem_195x195.png",
+    "imageLink"    : "https://eu.wargaming.net/clans/media/clans/emblems/cl_485/500011485/emblem_195x195.png",
+    "imageWidth"   : 150,
+    "imageHeight"  : 150,
+    "messageLinkName"  : "Co nowego?",
+    "windowName"  : "Aktualizacja gotowa",
+    "buttonNameOpen"  : "Download",
+    "buttonNameClose"  : "Close",
+    "header"       : "<textformat><font color=\"#00ffff\">{name}</b></font><br/><font color=\"#E2D2A2\">Dostepna wersja: </font><font color=\"#00ffff\">{version}</font> <font color=\"#02C9B3\">({date})</font><br/></textformat>",
+    "message"      : "<font color=\"#E2D2A2\">Zmiany:</font><br/><font color=\"#FE0E00\">1. Aktualizacja xvm v7.9.3<br/>2. Aktualizacja wa¿nych plików modów:</br>a) safeshot</br>b)Rozszerzone info o badaniach na czo³gach</br>c) Odznaczenia w bitwie</font>"
+}

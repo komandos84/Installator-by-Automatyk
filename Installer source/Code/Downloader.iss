@@ -1,0 +1,1 @@
+;#include <idplang\Polish.iss>
