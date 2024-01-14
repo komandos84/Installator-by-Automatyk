@@ -14,3 +14,5 @@
 #define LastVersionFile "lastVersion.txt"
 #define LogsFile        "__installLogs.log"
 #define Backup          "BackupMods"
+
+#define MOD_DIR         "Automatyk"

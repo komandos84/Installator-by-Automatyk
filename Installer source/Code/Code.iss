@@ -11,7 +11,6 @@
 #endif
 
 var
-    PicForm: TForm;
     WotList: TNewComboBox;
     Buffer: String;
     InfoPic: TBitmapImage;
@@ -64,12 +63,12 @@ end;
 
 procedure DelModsDir();
 begin
-    DelTree(ExpandConstant('{app}\res_mods'), False, True, True);
-    DelTree(ExpandConstant('{app}\mods'), False, True, True);
+//    DelTree(ExpandConstant('{app}\res_mods'), False, True, True);
+    DelTree(ExpandConstant('{app}\mods\{#Patch}\{#MOD_DIR}'), False, True, True);
     DelTree(ExpandConstant('{app}\__ModsCache'), False, True, True);
 
-    ForceDirectories(ExpandConstant('{app}\res_mods\{#Patch}'));
-    ForceDirectories(ExpandConstant('{app}\mods\{#Patch}'));
+//    ForceDirectories(ExpandConstant('{app}\res_mods\{#Patch}'));
+//    ForceDirectories(ExpandConstant('{app}\mods\' + GameVersion + '\{#MOD_DIR}'));
 end;
 
 procedure RemoveDir(const Dir: string);
@@ -164,7 +163,7 @@ begin
     case CurPageID of
         wpSelectComponents:
         begin
-            PicForm.Hide;
+            //pass
         end;
     end;
 end;
@@ -188,7 +187,7 @@ begin
 
         wpSelectComponents:
             begin
-                PicForm.Hide;
+                //pass
             end;
 
         wpSelectTasks:
@@ -198,19 +197,6 @@ begin
 
         wpReady:
             begin
-
-            Index := WizardForm.TasksList.Items.IndexOf(ExpandConstant('{cm:safe_copy_xvm}'));
-            if Index <> -1 then
-            begin
-                if WizardForm.TasksList.Checked[Index] then
-                begin
-                    if SaveBackupMods() then
-                    begin
-                        MsgBox(ExpandConstant('{cm:backup_done}'), mbInformation, MB_OK);
-                    end else
-                        Result := False;
-                end;
-            end;
 
             Index := WizardForm.TasksList.Items.IndexOf(ExpandConstant('{cm:pythonlog}'));
             if Index <> -1 then
@@ -223,11 +209,6 @@ begin
                     if FileExists(ExpandConstant('{app}\python.log')) then
                         SaveStringToFile(ExpandConstant('{app}\python.log'), '', False);
                 end;
-            end;
-
-            if MsgBox(ExpandConstant('{cm:clear_mods_dir}'), mbConfirmation, MB_YESNO) = idYes then
-            begin
-                DelModsDir();
             end;
 
             if not DirExists(ExpandConstant('{app}\__ModsCache')) then
@@ -301,84 +282,7 @@ end;
 var
     forumButton : TNewButton;
     clanButton  : TNewButton;
-//    donateButton: TNewButton;
-
-procedure GrowWizard(DeltaX, DeltaY: Integer);
-begin
-    GrowRightAndDown(WizardForm, DeltaX, DeltaY);
-
-    with WizardForm do
-    begin
-        GrowRightAndShiftDown(Bevel, DeltaX, DeltaY);
-        ShiftDownAndRight(CancelButton, DeltaX, DeltaY);
-        ShiftDownAndRight(NextButton, DeltaX, DeltaY);
-        ShiftDownAndRight(BackButton, DeltaX, DeltaY);
-        GrowRightAndDown(OuterNotebook, DeltaX, DeltaY);
-        //GrowRight(BeveledLabel, DeltaX);
-
-        { WelcomePage }
-        GrowDown(WizardBitmapImage, DeltaY);
-        GrowRight(WelcomeLabel2, DeltaX);
-        GrowRight(WelcomeLabel1, DeltaX);
-
-        { InnerPage }
-        GrowRight(Bevel1, DeltaX);
-        GrowRightAndDown(InnerNotebook, DeltaX, DeltaY);
-
-        { LicensePage }
-        ShiftDown(LicenseNotAcceptedRadio, DeltaY);
-        ShiftDown(LicenseAcceptedRadio, DeltaY);
-
-        ShiftDown(forumButton, DeltaY);
-        ShiftDown(clanButton, DeltaY);
-        //ShiftDown(donateButton, DeltaY);
-        ShiftDown(BeveledLabel, DeltaY);
-
-        GrowRightAndDown(LicenseMemo, DeltaX, DeltaY);
-        GrowRight(LicenseLabel1, DeltaX);
-
-        { InfoBeforePage }
-        GrowRightAndDown(InfoBeforeMemo, DeltaX, DeltaY);
-
-        { SelectDirPage }
-        GrowRightAndShiftDown(DiskSpaceLabel, DeltaX, DeltaY);
-        ShiftRight(DirBrowseButton, DeltaX);
-        GrowRight(DirEdit, DeltaX);
-        GrowRight(SelectDirBrowseLabel, DeltaX);
-        GrowRight(SelectDirLabel, DeltaX);
-
-        { SelectComponentsPage }
-        GrowRightAndShiftDown(ComponentsDiskSpaceLabel, DeltaX, DeltaY);
-        GrowRightAndDown(ComponentsList, DeltaX, DeltaY);
-        GrowRight(TypesCombo, DeltaX);
-        GrowRight(SelectComponentsLabel, DeltaX);
-
-        { SelectTasksPage }
-        GrowRightAndDown(TasksList, DeltaX, DeltaY);
-        GrowRight(SelectTasksLabel, DeltaX);
-
-        { ReadyPage }
-        GrowRightAndDown(ReadyMemo, DeltaX, DeltaY);
-        GrowRight(ReadyLabel, DeltaX);
-
-        { InstallingPage }
-        GrowRight(FilenameLabel, DeltaX);
-        GrowRight(StatusLabel, DeltaX);
-        GrowRight(ProgressGauge, DeltaX);
-
-        { MainPanel }
-        GrowRight(MainPanel, DeltaX);
-        ShiftRight(WizardSmallBitmapImage, DeltaX);
-        GrowRight(PageDescriptionLabel, DeltaX);
-        GrowRight(PageNameLabel, DeltaX);
-
-        { FinishedPage }
-        GrowDown(WizardBitmapImage2, DeltaY);
-        GrowRight(RunList, DeltaX);
-        GrowRight(FinishedLabel, DeltaX);
-        GrowRight(FinishedHeadingLabel, DeltaX);
-    end;
-end;
+    donateButton: TNewButton;
 
 procedure RedesignWizardForm;
 begin
@@ -387,7 +291,7 @@ begin
     begin
         Parent := WizardForm;
         Left := WizardForm.ClientWidth - WizardForm.CancelButton.Left - WizardForm.CancelButton.Width;
-        Top := WizardForm.CancelButton.Top;
+        Top := WizardForm.CancelButton.Top + 70;
         Width := WizardForm.CancelButton.Width;
         Height := WizardForm.CancelButton.Height;
         Caption := ExpandConstant('{cm:forum}');
@@ -399,7 +303,7 @@ begin
     begin
         Parent := WizardForm;
         Left := WizardForm.ClientWidth - WizardForm.CancelButton.Left;
-        Top := WizardForm.CancelButton.Top;
+        Top := WizardForm.CancelButton.Top + 70;
         Width := WizardForm.CancelButton.Width;
         Height := WizardForm.CancelButton.Height;
         Caption := ExpandConstant('{cm:clan}');
@@ -411,57 +315,29 @@ begin
         ExpandConstant('{cm:optionpage_subcaption}'),
         False, False);
 
-    OptionPage.Add(ExpandConstant('{cm:show_pictures_preview}'));
+    //OptionPage.Add(ExpandConstant('{cm:show_pictures_preview}'));
     OptionPage.Add(ExpandConstant('{cm:play_crew_sounds}'));
-    OptionPage.Values[0] := True;
-    OptionPage.Values[1] := False;
+    OptionPage.Values[0] := False;
+    //OptionPage.Values[1] := False;
 
     // Read values into variables
     //IsRegisteredUser := OptionPage.Values[0];
 
-    {donateButton := TNewButton.Create(WizardForm);
+    donateButton := TNewButton.Create(WizardForm);
     with donateButton do
     begin
         Parent := WizardForm;
         Left := WizardForm.ClientWidth - WizardForm.CancelButton.Left + clanButton.Width;
-        Top := WizardForm.CancelButton.Top;
+        Top := WizardForm.CancelButton.Top + 70;
         Width := WizardForm.CancelButton.Width;
         Height := WizardForm.CancelButton.Height;
         Caption := 'Donate';
         OnClick := @DonateOnClick;
-    end;}
+    end;
 
     with WizardForm do
     begin
         Caption := ExpandConstant('{#MyAppName} {#MyAppVersion} / [{#ActData}]');
-    end;
-end;
-
-procedure ShowPicHint(const PicFilePath: String);
-var
-	ImageTempPath : String;
-begin
-    if OptionPage.Values[0] = True then
-    begin
-        ImageTempPath := TempPath + PicFilePath;
-
-        if not FileExists(ImageTempPath) then
-            ExtractTemporaryFile(PicFilePath);
-
-        InfoPic.Bitmap.LoadFromFile(ImageTempPath);
-
-        try
-            with PicForm do
-            begin
-                Top := WizardForm.Top;
-                Left := WizardForm.Left + WizardForm.ClientWidth + 10;
-                Height := InfoPic.Height;
-                Width := InfoPic.Width;
-                Show;
-            end;
-        finally
-        // WizardForm.SetFocus();
-        end;
     end;
 end;
 
@@ -470,7 +346,7 @@ var
     AudioStreamHandle: HWND;
     AudioTempPath: String;
 begin
-    if OptionPage.Values[1] = True then
+    if OptionPage.Values[0] = True then
     begin
         AudioTempPath := AddBackslash(ExpandConstant('{tmp}\')) + AudioFile;
 
@@ -492,35 +368,13 @@ begin
     BASS_Free();
 end;
 
-procedure InfoInit();
-begin
-	TempPath := AddBackslash(ExpandConstant('{tmp}'));
-	PicForm := TForm.Create(WizardForm);
-
-	with PicForm do
-    begin
-        BorderStyle := bsNone;
-        FormStyle := fsStayOnTop;
-        InfoPic := TBitmapImage.Create(PicForm)
-        with InfoPic do
-        begin
-            Parent := PicForm;
-            AutoSize := True;
-        end;
-    end;
-
-	SetWindowLong(PicForm.Handle, GWL_EXSTYLE, GetWindowLong(PicForm.Handle, GWL_EXSTYLE) or WS_EX_LAYERED);
-    SetLayeredWindowAttributes(PicForm.Handle, 0, ALPHA_BLEND_LEVEL, LWA_ALPHA);
-end;
-
 procedure ComponentsListOnClickCheck(Sender: TObject);
 begin
-	PicForm.Hide;
     StopPlayAudio;
 
 	case WizardForm.ComponentsList.ItemIndex of
         //0: PL
-        //1: begin StartPlayAudio(ExpandConstant('bomba_ekipa.mp3')); end;
+        1: begin StartPlayAudio(ExpandConstant('bomba_ekipa.mp3')); end;
         2: begin StartPlayAudio(ExpandConstant('julian.mp3')); end;
         3: begin StartPlayAudio(ExpandConstant('kobitki.mp3')); end;
         4: begin StartPlayAudio(ExpandConstant('pingwiny.mp3')); end;
@@ -528,8 +382,7 @@ begin
         6: begin StartPlayAudio(ExpandConstant('old_crew.mp3')); end;
         7: begin StartPlayAudio(ExpandConstant('Vito.mp3')); end;
         8: begin StartPlayAudio(ExpandConstant('Wiedzmin.mp3')); end;
-        //9: EN
-        10: begin StartPlayAudio(ExpandConstant('team_fortress.mp3')); end;
+        9: begin StartPlayAudio(ExpandConstant('team_fortress.mp3')); end;
 	end;
 end;
 
@@ -548,7 +401,6 @@ begin
         for Index:=0 to ClientsCount-1 do
         begin
             WOT_GetClientVersionW(Buffer,1024,Index);
-            Str:=Copy(Buffer,0,Pos(#0, Buffer));
 
             case WOT_GetClientBranch(Index) of
                 1: Insert(' Release: ',Str,Pos(#0, Str));
@@ -601,22 +453,11 @@ begin
     WizardForm.DirEdit.Text:=Buffer;
 end;
 
-procedure DownloadInstallatorFiles;
-begin
-    //ITD_ClearFiles;
-
-    //ITD_AddFile('https://github.com/komandos84/Installator-by-Automatyk/raw/master/Installer%20source/Audio/AudioSamples.zip', ExpandConstant('{tmp}\AudioSamples.zip'));
-end;
-
 procedure InitializeWizard();
 begin
     DwinsHs_InitializeWizard(wpPreparing);
-
-    InfoInit();
     WizardForm.ComponentsList.OnClickCheck:=@ComponentsListOnClickCheck;
-
     RedesignWizardForm;
-    GrowWizard(ScaleX(70), ScaleY(270));
 
     WizardForm.Position := poScreenCenter;
 
@@ -638,8 +479,6 @@ begin
     );
 
     WotList_Update();
-
-    DownloadInstallatorFiles;
 end;
 
 procedure CurPageChanged(CurPage: Integer);
@@ -726,15 +565,15 @@ procedure CurStepChanged(CurStep: TSetupStep);
 begin
     if CurStep = ssPostInstall then
     begin
-        CopyAndUnZip('PL\Bomba',          'BombaBlokEkipa');
-        CopyAndUnZip('PL\Julian',         'KrolJulian');
-        CopyAndUnZip('PL\Kobitki',        'Kobitki');
-        CopyAndUnZip('PL\Pingwiny',       'PingwinyPrzyjaciele');
-        CopyAndUnZip('PL\Pancerni',       'Pancerni');
-        CopyAndUnZip('PL\OldCrewSounds',  'OldCrew_0.6.7');
-        CopyAndUnZip('PL\Vito',           'CrewSoundsByVito');
-        CopyAndUnZip('PL\Wiedzmin',       'Wiedzmin');
-        CopyAndUnZip('EN\TeamFortress',   'TeamFortress');
+        CopyAndUnZip('S\Bomba',          'BombaBlokEkipa');
+        CopyAndUnZip('S\Julian',         'KrolJulian');
+        CopyAndUnZip('S\Kobitki',        'Kobitki');
+        CopyAndUnZip('S\Pingwiny',       'PingwinyPrzyjaciele');
+        CopyAndUnZip('S\Pancerni',       'Pancerni');
+        CopyAndUnZip('S\OldCrewSounds',  'OldCrew_0.6.7');
+        CopyAndUnZip('S\Vito',           'CrewSoundsByVito');
+        CopyAndUnZip('S\Wiedzmin',       'Wiedzmin');
+        CopyAndUnZip('S\TeamFortress',   'TeamFortress');
     end;
 end;
 
@@ -742,19 +581,6 @@ end;
 procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
 begin
     DelModsDir;
-
-    case CurUninstallStep of
-        usPostUninstall:
-        begin
-            if MsgBox(ExpandConstant('{cm:restore_previous_mods}'), mbConfirmation, MB_YESNO) = idYes then
-            begin
-                RestoreBackupMods();
-                MsgBox(ExpandConstant('{cm:copy_restored}'), mbInformation, MB_OK);
-            end;
-
-            RemoveDir(ExpandConstant('{app}\{#Backup}'));
-        end;
-    end;
 end;
 
 procedure DeinitializeSetup;

@@ -9,7 +9,7 @@
 ; language files section
 #include "code/lang/pl.iss"
 #include "code/lang/en.iss"
-#include "code/Downloader.iss"
+;#include "code/Downloader.iss"
 
 ; other files
 #include "code/Setup.iss"

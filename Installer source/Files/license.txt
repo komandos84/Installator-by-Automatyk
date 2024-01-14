@@ -2,10 +2,6 @@ Paczka modów skomponowana na potrzeby graczy World of Tanks. Za paczkê nie pobie
 
 ¯yczê przyjemnej gry z moimi konfiguracjami dŸwiêkowymi!
 
-Podziêkowania za udostêpnienie swoich modów do paczki:
-1. Nikodemsky
-2. Inni z nicka niewymienieni
-
 Podziêkowania za pomoc przy tworzeniu instalatora:
 Aslain
 

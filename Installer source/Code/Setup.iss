@@ -42,10 +42,15 @@ InfoBeforeFile=Files\changelog.rtf
 OutputDir=.\Output{#OutputExt}
 OutputBaseFilename={#MySetupName} {#Patch}.{#BuildNumber} {#ActData}
 
+; Wizard Settings
+Wizardstyle=modern
+WizardResizable=no
+
 ; Compression level
-Compression=lzma2/ultra
-InternalCompressLevel=ultra
-SolidCompression=true
+Compression             = lzma2/ultra
+CompressionThreads      = 4
+InternalCompressLevel   = ultra
+SolidCompression        = true
 
 ; Uninstall parameters
 UninstallFilesDir={app}\{#MyUninstDirName}
