@@ -519,96 +519,17 @@ begin
     StopPlayAudio;
 
 	case WizardForm.ComponentsList.ItemIndex of
-        //0:	begin ShowPicHint('mods.bmp'); end;
-        //1:	begin ShowPicHint('StatsCounter.bmp'); end;
-        //2:	begin ShowPicHint('NewUpdateNotifier.bmp'); end;
-        //3:	begin ShowPicHint('some_mods.bmp'); end;
-        //4:	begin ShowPicHint('XVM.bmp'); end;
-        //5:    hangar
-        6:	begin ShowPicHint('locked.bmp'); end;
-        7:	begin ShowPicHint('nostats.bmp'); end;
-        8:	begin ShowPicHint('contour.bmp'); end;
-        //9:	begin ShowPicHint('saveLastServerEnable.bmp'); end;
-        //10:	begin ShowPicHint('autologinEnable.bmp'); end;
-        //11:	begin ShowPicHint('colors.bmp'); end;
-        //12:	begin ShowPicHint('withoutxvm.bmp'); end;
-        13:	begin ShowPicHint('ClockInHangar.bmp'); end;
-        14:	begin ShowPicHint('no_xvm_icons.bmp'); end;
-        //15:	begin ShowPicHint('withoutxvm.bmp'); end;
-        16:	begin ShowPicHint('BattleObserver.bmp'); end;
-        17:	begin ShowPicHint('WotlabPlayersRankings.bmp'); end;
-        //18:	begin ShowPicHint('safeshot.bmp'); end;
-        19:	begin ShowPicHint('mapRotation.bmp'); end;
-        20:	begin ShowPicHint('TankExt.bmp'); end;
-        21:	begin ShowPicHint('CrewExt.bmp'); end;
-        22:	begin ShowPicHint('skins.bmp'); end;
-        23:	begin ShowPicHint('KKK.bmp'); end;
-        24: begin ShowPicHint('RI.bmp'); end;
-        25:	begin ShowPicHint('camouflage.bmp'); end;
-        // 26 RaJCeL
-        27:	begin ShowPicHint('WN8_RaJCeL.bmp'); end;
-        28:	begin ShowPicHint('rajcelHighCaliber.bmp'); end;
-        29:	begin ShowPicHint('friendsNotifier_RaJCeL.bmp'); end;
-        30:	begin ShowPicHint('shellInfo.bmp'); end;
-        31:	begin ShowPicHint('Stats_RaJCeL.bmp'); end;
-        32:	begin ShowPicHint('singleListParams.bmp'); end;
-        33:	begin ShowPicHint('changeSilhouetteColors.bmp'); end;
-        //34:	begin ShowPicHint('FriendsMarkerOldSkools.bmp'); end;
-        35: begin ShowPicHint('paintball.bmp'); end;
-        36: begin ShowPicHint('MarksOnGunExtended.bmp'); end;
-        //37
-        //38
-        39: begin ShowPicHint('core.bmp'); end;
-        40: begin ShowPicHint('vanilla.bmp'); end;
-        41:	begin ShowPicHint('base.bmp'); end;
-        //42
-        43:	begin ShowPicHint('bgv1.bmp'); end;
-        44:	begin ShowPicHint('bgv2.bmp'); end;
-        45:	begin ShowPicHint('bgv3.bmp'); end;
-        46:	begin ShowPicHint('bgv4.bmp'); end;
-        47:	begin ShowPicHint('bgv5.bmp'); end;
-        48:	begin ShowPicHint('graph.bmp'); end;
-        //49
-        //50
-        51:	begin ShowPicHint('param_panels.bmp'); end;
-        52:	begin ShowPicHint('yk_param_panel.bmp'); end;
-        53:	begin ShowPicHint('yk_account_stat.bmp'); end;
-        54:	begin ShowPicHint('yk_stat_by_tank.bmp'); end;
-        55:	begin ShowPicHint('yk_vehicle_stat.bmp'); end;
-        //56
-        57:	begin ShowPicHint('beta.bmp'); end;
-        //58
-        59:	begin ShowPicHint('Tomonik_stats.bmp'); end;
-        //60: begin ShowPicHint('crosshairs.bmp'); end;
-        61:	begin ShowPicHint('jimbo.bmp'); end;
-        62:	begin ShowPicHint('Harpoon.bmp'); end;
-        63:	begin ShowPicHint('Deegie.bmp'); end;
-        64:	begin ShowPicHint('Achilles.bmp'); end;
-        65:	begin ShowPicHint('Mjolnir.bmp'); end;
-        66: begin ShowPicHint('KellermanBlue.bmp'); end;
-        67: begin ShowPicHint('Staple.bmp'); end;
-        68: begin ShowPicHint('WhiteMini2.bmp'); end;
-        69: begin ShowPicHint('Combo.bmp'); end;
-        70: begin ShowPicHint('ShellTravelTimeSPG.bmp'); end;
-        //71: begin ShowPicHint('DamagePanel.bmp'); end;
-        72: begin ShowPicHint('Inner.bmp'); end;
-        73: begin ShowPicHint('Outer.bmp'); end;
-        74: begin ShowPicHint('Turtle_a.bmp'); end;
-        75: begin ShowPicHint('Turtle_b.bmp'); end;
-        76: begin ShowPicHint('consumablesPanel.bmp'); end;
-        77: begin ShowPicHint('HangMan.bmp'); end;
-        //78: begin ShowPicHint('achivments.bmp'); end;
-        //79: sounds
-        //80: begin StartPlayAudio(ExpandConstant('bomba_ekipa.mp3')); end;
-        81: begin StartPlayAudio(ExpandConstant('julian.mp3')); end;
-        82: begin StartPlayAudio(ExpandConstant('kobitki.mp3')); end;
-        83: begin StartPlayAudio(ExpandConstant('pingwiny.mp3')); end;
-        84: begin StartPlayAudio(ExpandConstant('pancerni.mp3')); end;
-        85: begin StartPlayAudio(ExpandConstant('old_crew.mp3')); end;
-        86: begin StartPlayAudio(ExpandConstant('Vito.mp3')); end;
-        87: begin StartPlayAudio(ExpandConstant('Wiedzmin.mp3')); end;
-        //88 EN
-        89: begin StartPlayAudio(ExpandConstant('team_fortress.mp3')); end;
+        //0: PL
+        //1: begin StartPlayAudio(ExpandConstant('bomba_ekipa.mp3')); end;
+        2: begin StartPlayAudio(ExpandConstant('julian.mp3')); end;
+        3: begin StartPlayAudio(ExpandConstant('kobitki.mp3')); end;
+        4: begin StartPlayAudio(ExpandConstant('pingwiny.mp3')); end;
+        5: begin StartPlayAudio(ExpandConstant('pancerni.mp3')); end;
+        6: begin StartPlayAudio(ExpandConstant('old_crew.mp3')); end;
+        7: begin StartPlayAudio(ExpandConstant('Vito.mp3')); end;
+        8: begin StartPlayAudio(ExpandConstant('Wiedzmin.mp3')); end;
+        //9: EN
+        10: begin StartPlayAudio(ExpandConstant('team_fortress.mp3')); end;
 	end;
 end;
 
@@ -764,7 +685,7 @@ function CopyAndUnZip(Component, ModName: String): Boolean;
 begin
     Result := True;
 
-    if IsComponentSelected(Component) then
+    if WizardIsComponentSelected(Component) then
     begin
         UnZip(ExpandConstant('{app}\__ModsCache\' + ModName + '.zip'), ExpandConstant('{app}\__ModsCache'));
 
@@ -802,116 +723,18 @@ end;
 
 
 procedure CurStepChanged(CurStep: TSetupStep);
-var
-    FileName : String;
 begin
     if CurStep = ssPostInstall then
     begin
-        CopyAndUnZip('S\PL\Bomba',                      'BombaBlokEkipa');
-        CopyAndUnZip('S\PL\Julian',                     'KrolJulian');
-        CopyAndUnZip('S\PL\Kobitki',                    'Kobitki');
-        CopyAndUnZip('S\PL\Pingwiny',                   'PingwinyPrzyjaciele');
-        CopyAndUnZip('S\PL\Pancerni',                   'Pancerni');
-        CopyAndUnZip('S\PL\OldCrewSounds',              'OldCrew_0.6.7');
-        CopyAndUnZip('S\PL\Vito',                       'CrewSoundsByVito');
-        CopyAndUnZip('S\PL\Wiedzmin',                   'Wiedzmin');
-        CopyAndUnZip('S\PL\EN\TeamFortress',            'TeamFortress');
-
-        CopyAndUnZip('M\StatsCounter',                      'StatsCounter');
-        CopyAndUnZip('M\NewUpdateNotifier',                 'NewUpdateNotifier');
-        CopyAndUnZip('M\Stat\NoXVM\Icons',                  'no_xvm_icons');
-        CopyAndUnZip('M\CamoIcons',                         'CamoIcons');
-        CopyAndUnZip('M\Stat\XVM',                          'xvm_config');
-        CopyAndUnZip('M\Stat\XVM\Icons',                    'xvm_icons');
-        CopyAndUnZip('M\Achivments',                        'Achivments');
-        CopyAndUnZip('M\Stat\NoXVM\ClockInHangar',          'ClockInHangar');
-        CopyAndUnZip('M\Stat\NoXVM\AutoEquip',              'AutoEquip');
-        CopyAndUnZip('M\Stat\NoXVM\Battle',                 'Battle_Observer');
-        CopyAndUnZip('M\Stat\NoXVM\WotlabPlayersRankings',  'WotlabPlayersRankings');
-        CopyAndUnZip('M\CamoSelector',                      'CamoSelector');
-        CopyAndUnZip('M\ConsumablesPanel',                  'ConsumablesPanel');
-        CopyAndUnZip('M\CrewExt',                           'Crew_Extended');
-        CopyAndUnZip('M\DamagePanel\Inner',                 'Inner');
-        CopyAndUnZip('M\DamagePanel\Outer',                 'Outer');
-        CopyAndUnZip('M\DamagePanel\Turtle_a',              'Turtle_a');
-        CopyAndUnZip('M\DamagePanel\Turtle_b',              'Turtle_b');
-        CopyAndUnZip('M\Oldskools',                         'FriendsMarkerOldSkools');
-        CopyAndUnZip('M\KKK',                               'KKK');
-        CopyAndUnZip('M\MapRotation',                       'MapRotation');
-        CopyAndUnZip('M\MarksOnGun',                        'MarksOnGun');
-        CopyAndUnZip('M\PaintBall',                         'PaintBall');
-        CopyAndUnZip('M\RI_Niko',                           'RI_Niko');
-        CopyAndUnZip('M\Safeshot',                          'Safeshot');
-        CopyAndUnZip('M\TankXPExt',                         'Tank_XP_Extended');
-
-        // RajCeL's
-        CopyAndUnZip('M\RaJCeL\inBattleStatistics',         'inBattleStatistics');
-        CopyAndUnZip('M\RaJCeL\FriendNotifier_RaJCeL',      'FriendNotifier_RaJCeL');
-        CopyAndUnZip('M\RaJCeL\ShellInfo',                  'ShellInfo_RaJCeL');
-        CopyAndUnZip('M\RaJCeL\onBattleResultsStatistics',  'onBattleResultsStatistics');
-        CopyAndUnZip('M\RaJCeL\singleListParams',           'singleListParams');
-        CopyAndUnZip('M\RaJCeL\changeSilhouetteColors',     'changeSilhouetteColors');
-        // RajCeL's
-
-        CopyAndUnZip('M\Stat\XVM\GoldFreeXPLocker',         'xvm_config_locked');
-        CopyAndUnZip('M\Stat\XVM\NoStats',                  'xvm_config_nostats');
-        CopyAndUnZip('M\Stat\XVM\wotlabs',                  'xvm_config_wotlabs');
-
-        // Crosshairs
-        CopyAndUnZip('M\Crosshairs\Achilles',           'Achilles');
-        CopyAndUnZip('M\Crosshairs\Deegie',             'Deegie');
-        CopyAndUnZip('M\Crosshairs\Harpoon',            'Harpoon');
-        CopyAndUnZip('M\Crosshairs\J1mB0',              'J1mB0');
-        CopyAndUnZip('M\Crosshairs\KellermanBlue',      'KellermanBlue');
-        CopyAndUnZip('M\Crosshairs\Mjolnir',            'Mjolnir');
-        CopyAndUnZip('M\Crosshairs\Staple',             'Staple');
-        CopyAndUnZip('M\Crosshairs\WhiteMini2',         'WhiteMini2');
-        CopyAndUnZip('M\Crosshairs\Combo',              'Combo');
-
-        CopyAndUnZip('M\Crosshairs\ShellTravelTimeSPG', 'ShellTravelTimeSPG');
-        // YasenKrasen
-        CopyAndUnZip('M\SS\YK\Base',                    'YK_Base');
-        CopyAndUnZip('M\SS\YK\Core',                    'YK_Core');
-        CopyAndUnZip('M\SS\YK\Vanilla',                 'YK_Vanilla');
-        CopyAndUnZip('M\SS\YK\Graph',                   'YK_Graphical');
-        CopyAndUnZip('M\SS\YK\BG\V1',                   'YK_V1');
-        CopyAndUnZip('M\SS\YK\BG\V2',                   'YK_V2');
-        CopyAndUnZip('M\SS\YK\BG\V3',                   'YK_V3');
-        CopyAndUnZip('M\SS\YK\BG\V4',                   'YK_V4');
-        CopyAndUnZip('M\SS\YK\BG\V5',                   'YK_V5');
-
-        // HangMan
-        CopyAndUnZip('M\HangMan',                       'HangMan');
-
-        // Tomonik Stats
-        CopyAndUnZip('M\SS\Tomonik_stats',              'Tomonik_stats');
-
-        // Replacing options
-        InitModOptionsTable;
-
-        FileName := ExpandConstant('{app}\mods\configs\yk-stats\config.json');
-        SetModOptions(FileName, 'M\SS\YK\dailyAutoResetEnable');
-        SetModOptions(FileName, 'M\SS\YK\ParamPanel\useParametersPanelEnable');
-        SetModOptions(FileName, 'M\SS\YK\ParamPanel\panelParametersEnable');
-        SetModOptions(FileName, 'M\SS\YK\ParamPanel\panelStatisticsEnable');
-        SetModOptions(FileName, 'M\SS\YK\ParamPanel\panelByTankEnable');
-        SetModOptions(FileName, 'M\SS\YK\ParamPanel\panelCurrentVehicleEnable');
-        SetModOptions(FileName, 'M\SS\YK\ParamPanel\researchWD\researchWatchdogEnable');
-        SetModOptions(FileName, 'M\SS\YK\ParamPanel\researchWD\useFreeXpEnable');
-
-        
-        FileName := ExpandConstant('{app}\mods\configs\rajcel\inBattleStatistics\highCaliber.json');
-        SetModOptions(FileName, 'M\RaJCeL\inBattleStatistics\rajcelHighCaliberEnable');
-
-        FileName := ExpandConstant('{app}\res_mods\configs\xvm\Automatyk\hangar.xc');
-        SetModOptions(FileName, 'M\Stat\XVM\hangar\GoldFreeXPLockerEnable');
-
-        FileName := ExpandConstant('{app}\res_mods\configs\xvm\Automatyk\widgetsTemplates.xc');
-        SetModOptions(FileName, 'M\Stat\XVM\hangar\NoStatsEnable');
-
-        FileName := ExpandConstant('{app}\res_mods\configs\xvm\Automatyk\login.xc');
-        SetModOptions(FileName, 'M\Stat\XVM\saveLastServerEnable');
-        SetModOptions(FileName, 'M\Stat\XVM\autologinEnable');
+        CopyAndUnZip('PL\Bomba',          'BombaBlokEkipa');
+        CopyAndUnZip('PL\Julian',         'KrolJulian');
+        CopyAndUnZip('PL\Kobitki',        'Kobitki');
+        CopyAndUnZip('PL\Pingwiny',       'PingwinyPrzyjaciele');
+        CopyAndUnZip('PL\Pancerni',       'Pancerni');
+        CopyAndUnZip('PL\OldCrewSounds',  'OldCrew_0.6.7');
+        CopyAndUnZip('PL\Vito',           'CrewSoundsByVito');
+        CopyAndUnZip('PL\Wiedzmin',       'Wiedzmin');
+        CopyAndUnZip('EN\TeamFortress',   'TeamFortress');
     end;
 end;
 

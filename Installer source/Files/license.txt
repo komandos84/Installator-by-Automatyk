@@ -1,6 +1,6 @@
 Paczka modów skomponowana na potrzeby graczy World of Tanks. Za paczkê nie pobieram ¿adnych op³at. Datki s¹ dobrowolne :)
 
-¯yczê przyjemnej gry z moimi konfiguracjami xvm i innych!
+¯yczê przyjemnej gry z moimi konfiguracjami dŸwiêkowymi!
 
 Podziêkowania za udostêpnienie swoich modów do paczki:
 1. Nikodemsky
@@ -11,4 +11,4 @@ Aslain
 
 
 Autor: Automatyk
-Copyright © 2017 - 2019
+Copyright © 2017 - 2024

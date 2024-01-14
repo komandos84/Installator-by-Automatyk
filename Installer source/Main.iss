@@ -18,5 +18,4 @@
 #include "code/findwot.iss"
 #include "code/Audio.iss"
 #include "code/UnZip.iss"
-#include "code/ConfigMods.iss"
 #include "code/Code.iss"

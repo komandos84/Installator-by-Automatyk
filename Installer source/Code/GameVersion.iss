@@ -4,9 +4,9 @@
 
 #expr CopyFile(Sourcepath + "\\Files\\changelog.rtf", Sourcepath + "\\Output\\changelog.rtf")
 
-#define Patch           "1.7.1.2"
+#define Patch           "1.23.1.0"
 #define AlphaBeta       ""
-#define MyAppVersion    "0.9.7 #" + Str(BuildNumber) + AlphaBeta
+#define MyAppVersion    "1.23.1.0 #" + Str(BuildNumber) + AlphaBeta
 
 #define MyInfoVer       "1"
 #define ActData         GetDateTimeString('dd.mm.yyyy', '', '')
