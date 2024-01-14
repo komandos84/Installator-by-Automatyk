@@ -12,7 +12,6 @@ Name: "{commondesktop}\{cm:remove_mods} {#MyAppDesc}"; Filename: "{app}\{#MyUnin
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:adds_options}"; Flags: unchecked
-Name: "pythonlog"; Description: "{cm:pythonlog}"; GroupDescription: "{cm:adds_options}"; Flags: unchecked
 
 [Files]
 

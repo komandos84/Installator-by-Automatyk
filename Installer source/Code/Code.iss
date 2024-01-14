@@ -13,9 +13,10 @@
 var
     WotList: TNewComboBox;
     Buffer: String;
-    InfoPic: TBitmapImage;
-    TempPath: String;
     OptionPage: TInputOptionWizardPage;
+    forumButton : TNewButton;
+    clanButton  : TNewButton;
+    donateButton: TNewButton;
 
 type
     COLORREF = DWORD;
@@ -121,40 +122,6 @@ begin
     end;
 end;
 
-function RestoreBackupMods(): Boolean;
-var
-    LastVersion: AnsiString;
-begin
-    Result := True;
-
-    if not LoadStringFromFile(ExpandConstant('{app}\{#Backup}\{#LastVersionFile}'), LastVersion) then
-    begin
-        Result := False;
-        exit;
-    end else
-        begin
-            DirectoryCopy(ExpandConstant('{app}\{#Backup}\' + LastVersion + '\mods\'), ExpandConstant('{app}\mods\'));
-            DirectoryCopy(ExpandConstant('{app}\{#Backup}\' + LastVersion + '\res_mods\'), ExpandConstant('{app}\res_mods\'));
-        end;
-end;
-
-function SaveBackupMods(): Boolean;
-var
-    CombineActualDateTime: String;
-begin
-    Result := True;
-
-    CombineActualDateTime := '{#Patch}_' + GetDateTimeString('ddmmyyyy_hhnnss', #0, #0);
-
-    ForceDirectories(ExpandConstant('{app}\{#Backup}\' + CombineActualDateTime + '\mods\'));
-    ForceDirectories(ExpandConstant('{app}\{#Backup}\' + CombineActualDateTime + '\res_mods\'));
-
-    DirectoryCopy(ExpandConstant('{app}\mods\'), ExpandConstant('{app}\{#Backup}\' + CombineActualDateTime + '\mods\'));
-    DirectoryCopy(ExpandConstant('{app}\res_mods\'), ExpandConstant('{app}\{#Backup}\' + CombineActualDateTime + '\res_mods\'));
-
-    SaveStringToFile(ExpandConstant('{app}\{#Backup}\{#LastVersionFile}'), CombineActualDateTime, False);
-end;
-
 function BackButtonClick(CurPageID: Integer): Boolean;
 begin
     Result := True;
@@ -240,50 +207,6 @@ begin
     ShellExec('', '{#MyDonateURL}', '' , '', SW_SHOW, ewNoWait, ResCode)
 end;
 
-// =======================================================
-procedure ShiftDown(Control: TControl; DeltaY: Integer);
-begin
-    Control.Top := Control.Top + DeltaY;
-end;
-
-procedure ShiftRight(Control: TControl; DeltaX: Integer);
-begin
-    Control.Left := Control.Left + DeltaX;
-end;
-
-procedure ShiftDownAndRight(Control: TControl; DeltaX, DeltaY: Integer);
-begin
-    ShiftDown(Control, DeltaY);
-    ShiftRight(Control, DeltaX);
-end;
-
-procedure GrowDown(Control: TControl; DeltaY: Integer);
-begin
-    Control.Height := Control.Height + DeltaY;
-end;
-
-procedure GrowRight(Control: TControl; DeltaX: Integer);
-begin
-    Control.Width := Control.Width + DeltaX;
-end;
-
-procedure GrowRightAndDown(Control: TControl; DeltaX, DeltaY: Integer);
-begin
-    GrowRight(Control, DeltaX);
-    GrowDown(Control, DeltaY);
-end;
-
-procedure GrowRightAndShiftDown(Control: TControl; DeltaX, DeltaY: Integer);
-begin
-    GrowRight(Control, DeltaX);
-    ShiftDown(Control, DeltaY);
-end;
-
-var
-    forumButton : TNewButton;
-    clanButton  : TNewButton;
-    donateButton: TNewButton;
-
 procedure RedesignWizardForm;
 begin
     forumButton := TNewButton.Create(WizardForm);
@@ -315,13 +238,8 @@ begin
         ExpandConstant('{cm:optionpage_subcaption}'),
         False, False);
 
-    //OptionPage.Add(ExpandConstant('{cm:show_pictures_preview}'));
     OptionPage.Add(ExpandConstant('{cm:play_crew_sounds}'));
     OptionPage.Values[0] := False;
-    //OptionPage.Values[1] := False;
-
-    // Read values into variables
-    //IsRegisteredUser := OptionPage.Values[0];
 
     donateButton := TNewButton.Create(WizardForm);
     with donateButton do
@@ -531,32 +449,6 @@ begin
         if DirExists(ExpandConstant('{app}\__ModsCache\' + ModName + '\mods\_patch_')) then
             DirectoryCopy(ExpandConstant('{app}\__ModsCache\' + ModName + '\mods\_patch_'), ExpandConstant('{app}\mods\{#Patch}'));
 
-        if DirExists(ExpandConstant('{app}\__ModsCache\' + ModName + '\mods\configs')) then
-        begin
-            ForceDirectories(ExpandConstant('{app}\mods\configs'));
-            DirectoryCopy(ExpandConstant('{app}\__ModsCache\' + ModName + '\mods\configs'), ExpandConstant('{app}\mods\configs'));
-        end;
-
-        if DirExists(ExpandConstant('{app}\__ModsCache\' + ModName + '\res_mods\_patch_')) then
-            DirectoryCopy(ExpandConstant('{app}\__ModsCache\' + ModName + '\res_mods\_patch_'), ExpandConstant('{app}\res_mods\{#Patch}'));
-
-        if DirExists(ExpandConstant('{app}\__ModsCache\' + ModName + '\res_mods\configs')) then
-        begin
-            ForceDirectories(ExpandConstant('{app}\res_mods\configs'));
-            DirectoryCopy(ExpandConstant('{app}\__ModsCache\' + ModName + '\res_mods\configs'), ExpandConstant('{app}\res_mods\configs'));
-        end;
-
-        if DirExists(ExpandConstant('{app}\__ModsCache\' + ModName + '\res_mods\mods')) then
-        begin
-            ForceDirectories(ExpandConstant('{app}\res_mods\mods'));
-            DirectoryCopy(ExpandConstant('{app}\__ModsCache\' + ModName + '\res_mods\mods'), ExpandConstant('{app}\res_mods\mods'));
-        end;
-
-        if DirExists(ExpandConstant('{app}\__ModsCache\' + ModName + '\res_mods\system')) then
-        begin
-            ForceDirectories(ExpandConstant('{app}\res_mods\system'));
-            DirectoryCopy(ExpandConstant('{app}\__ModsCache\' + ModName + '\res_mods\system'), ExpandConstant('{app}\res_mods\system'));
-        end;
     end;
 end;
 

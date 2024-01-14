@@ -55,7 +55,3 @@ Source: "{app}\__ModsCache\TeamFortress.zip";           DestDir: "{app}\__ModsCa
      Flags: external; Check: DwinsHs_Check(ExpandConstant('{app}\__ModsCache\TeamFortress.zip'), \
     'https://github.com/komandos84/Installator-by-Automatyk/raw/master/Installer%20source/Mods/Sounds/TeamFortress.zip', '{#MyAppName}', 'Get', 2149585, 0 );
 
-; StatsCounter
-;Source: "{app}\__ModsCache\StatsCounter.zip";         DestDir: "{app}\__ModsCache"; Components: M\StatsCounter; \
-;     Flags: external; Check: DwinsHs_Check(ExpandConstant('{app}\__ModsCache\StatsCounter.zip'), \
-;    'https://github.com/komandos84/Installator-by-Automatyk/raw/master/Installer%20source/Mods/StatsCounter/StatsCounter.zip', '{#MyAppName}', 'Get', 5154, 0 );

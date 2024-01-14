@@ -20,12 +20,10 @@ en.StatusUninstalling       =Uninstalling %1...
 
 en.wotNotFound              =Not found World of Tanks game!
 en.browse                   =Browse
-en.pythonlog                =Clear file: python.log
 en.adds_options             =Choose additional options:
 en.safe_copy_xvm            =Make a backup copy of the xvm and mod settings
 en.clan                     =PKPP clan
-en.forum                    =PKPP forum
-en.xvm_activate             =Go to XVM page to activate statistics!
+en.forum                    =WoT forum
 en.remove_mods              =Uninstall
 
 en.myappexe_no_found        =The file {#MyAppExe} was not found in the directory you indicated!
@@ -42,7 +40,7 @@ en.new_update_notifier      =New Update Notifier
 en.own_install              =Own installation
 en.clear_all                =Uncheck all
 en.mods                     =Mods
-en.crew_sounds_pl           =DŸwiêki za³ogi
+en.crew_sounds_pl           =Crew sounds
 
 en.play_crew_sounds         =Play crew sounds
 en.optionpage_caption       =Additional options

@@ -20,12 +20,9 @@ pl.StatusUninstalling       =Dezinstalacja %1...
 
 pl.wotNotFound              =Nie znaleziono gry World of Tanks!
 pl.browse                   =Przegl¹daj
-pl.pythonlog                =Wyczyœæ plik: python.log
 pl.adds_options             =Wybierz opcje dodatkowe:
-pl.safe_copy_xvm            =Wykonaj kopiê bezpieczeñstwa ustawieñ xvm i modów
 pl.clan                     =Klan PKPP
 pl.forum                    =Forum WoT
-pl.xvm_activate             =PrzejdŸ na stronê XVM w celu aktywacji statystyk!
 pl.remove_mods              =Odinstaluj
 
 pl.myappexe_no_found        =Nie znaleziono pliku {#MyAppExe} w katalogu, który wskaza³eœ!
@@ -38,7 +35,6 @@ pl.backup_done              =Kopia zapasowa wykonana!
 pl.own_install              =W³asna instalacja
 pl.clear_all                =Odznacz wszystko
 
-pl.show_pictures_preview    =Poka¿ podgl¹d modów
 pl.play_crew_sounds         =Odtwarzaj dŸwiêki za³ogi
 pl.optionpage_caption       =Opcje dodatkowe
 pl.optionpage_descr         =Wybrane opcje bêd¹ mia³y wp³yw na dalszy proces instalacji
